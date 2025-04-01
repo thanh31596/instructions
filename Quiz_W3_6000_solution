@@ -162,16 +162,4 @@ This requires multiple analyses:
    - Create a calculated field for distinct products per transaction
    - Compare this metric across location types
 
-## Tips for Efficient Analysis
 
-1. **Create a Dashboard**: Combine related visualizations into a dashboard for easier comparison
-
-2. **Use Calculated Fields**: Many questions require calculated fields rather than simple aggregations
-
-3. **Apply Filters Strategically**: Use filters to focus on relevant subsets of data
-
-4. **Check Sample Sizes**: Be cautious of conclusions based on very small sample sizes
-
-5. **Use Color and Labels**: Make your visualizations easy to interpret at a glance
-
-6. **Save Your Work**: Create a packaged workbook to submit with your answers
