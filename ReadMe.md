@@ -493,26 +493,6 @@ Students can experiment with:
 
 ---
 
-## Assessment Rubric
-
-### Technical Skills (40 points)
-- **HTML Structure (10 pts):** Proper semantic HTML, clean structure
-- **CSS Layout (10 pts):** Grid and flexbox implementation
-- **Animations (10 pts):** Smooth transitions and hover effects
-- **Responsive Design (10 pts):** Works on different screen sizes
-
-### Design & Creativity (30 points)
-- **Visual Appeal (15 pts):** Professional appearance, good color choices
-- **Content Quality (15 pts):** Appropriate images and text
-
-### Problem Solving (20 points)
-- **Debugging (10 pts):** Ability to fix issues independently
-- **Code Organization (10 pts):** Clean, commented, organized code
-
-### Presentation (10 points)
-- **Demo (10 pts):** Can explain how features work
-
----
 
 ## Extension Challenges
 
@@ -520,48 +500,5 @@ Students can experiment with:
 1. Add more carousel slides with automatic rotation
 2. Create a lightbox effect for gallery images
 3. Add filtering buttons for gallery categories
-4. Implement smooth scrolling navigation
-5. Add loading animations
 
-**For Struggling Students:**
-- Focus on completing Steps 1-4 (basic gallery grid)
-- Simplify carousel to just HTML structure
-- Use simpler hover effects (just color changes)
 
----
-
-## Common Troubleshooting
-
-**Carousel not working?**
-- Check that radio button IDs match label `for` attributes
-- Ensure the transform percentages are correct
-
-**Images not showing?**
-- Verify image paths are correct
-- Check if placeholder URLs work in your environment
-
-**Styles not applying?**
-- Check for typos in CSS selectors
-- Ensure CSS is inside `<style>` tags
-- Validate HTML structure
-
-**Hover effects not smooth?**
-- Check transition properties are applied to base element, not hover state
-- Verify transform-origin is set correctly
-
----
-
-## Teacher Notes
-
-- **Day 1:** Focus on structure and basic styling
-- **Day 2:** Build the grid and add basic interactivity
-- **Day 3:** Tackle the carousel (most challenging part)
-- **Day 4:** Polish and responsive design
-- **Day 5:** Customization and presentations
-
-**Key Learning Objectives:**
-- CSS Grid and Flexbox mastery
-- Advanced CSS selectors and pseudo-classes
-- Transform and transition properties
-- Responsive design principles
-- CSS-only interactive components
