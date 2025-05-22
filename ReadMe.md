@@ -1,299 +1,569 @@
-# Complete Guide to Using Tableau with Sales Data
+# Professional Photo Gallery - Step-by-Step Tutorial
 
-This comprehensive guide will walk you through how to use Tableau to analyze the provided sales dataset. You'll learn how to connect to data, create visualizations, build interactive dashboards, and perform various types of analysis.
+## Project Overview
+Students will build a professional dark-themed photo gallery with carousel and hover effects. This project teaches advanced CSS techniques including animations, responsive design, and complex layouts.
 
-## Table of Contents
-1. [Getting Started with Tableau](#getting-started-with-tableau)
-2. [Connecting to the Sales Dataset](#connecting-to-the-sales-dataset)
-3. [Understanding the Tableau Interface](#understanding-the-tableau-interface)
-4. [Creating Basic Visualizations](#creating-basic-visualizations)
-5. [Working with Dates](#working-with-dates)
-6. [Geographic Mapping](#geographic-mapping)
-7. [Creating Calculated Fields](#creating-calculated-fields)
-8. [Building Filters](#building-filters)
-9. [Creating Parameters](#creating-parameters)
-10. [Building Interactive Dashboards](#building-interactive-dashboards)
-11. [Advanced Analytics](#advanced-analytics)
-12. [Sharing and Exporting Your Work](#sharing-and-exporting-your-work)
+**Estimated Time:** 4-6 class periods  
+**Difficulty:** Intermediate to Advanced
 
-## Getting Started with Tableau
+---
 
-### Downloading and Installing Tableau
-1. Visit the [Tableau website](https://www.tableau.com/) and download Tableau Desktop (you can start with a free trial)
-2. Install the application following the on-screen instructions
-3. Launch Tableau Desktop
+## Step 1: Setting Up the HTML Structure (Day 1)
 
-### Tableau Versions
-- **Tableau Public**: Free version with limited features, requires publishing to Tableau Public server
-- **Tableau Desktop**: Full-featured paid version
-- **Tableau Online/Server**: Enterprise solutions for sharing and collaboration
+### 1.1 Create the Basic HTML File
+Create a new file called `gallery.html` and start with this basic structure:
 
-## Connecting to the Sales Dataset
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Photo Gallery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* CSS will go here */
+    </style>
+</head>
+<body>
+    <!-- Content will go here -->
+</body>
+</html>
+```
 
-1. Launch Tableau Desktop
-2. On the start page, click "Text File" under "Connect"
-3. Navigate to where you saved the Sales Dataset CSV file and select it
-4. Click "Open"
+### 1.2 Add the Header Section
+Inside the `<body>` tags, add:
 
-### Data Source Page
-After connecting, you'll see the Data Source page where you can:
-- Preview the data
-- Change data types
-- Create relationships between tables (if you have multiple tables)
-- Apply data source filters
+```html
+<header>
+    <div class="logo">LUMINA</div>
+    <div class="tagline">Professional Photography Gallery</div>
+</header>
+```
 
-### Data Types
-Ensure your fields have the correct data types:
-- **Order Date**: Date & Time
-- **Product Category, Subcategory, etc.**: String (text)
-- **Sales Amount, Quantity, etc.**: Number (decimal)
+### 1.3 Add the Main Gallery Structure
+After the header, add:
 
-## Understanding the Tableau Interface
+```html
+<main class="gallery-section">
+    <h2 class="section-title">Featured Collections</h2>
+    
+    <!-- Carousel will go here -->
+    <div class="carousel-container">
+        <p>Carousel coming soon...</p>
+    </div>
 
-### Workspace Elements
-- **Data pane**: Shows dimensions (blue) and measures (green)
-- **Sheets tabs**: Create new worksheets, dashboards, or stories
-- **Shelves and Cards**: Rows, Columns, Filters, Pages, and Marks
-- **Show Me**: Suggests visualization types based on selected fields
-- **Marks card**: Controls the visual appearance (color, size, shape, etc.)
+    <!-- Gallery grid will go here -->
+    <div class="gallery-grid">
+        <p>Gallery grid coming soon...</p>
+    </div>
+</main>
+```
 
-### Dimensions vs. Measures
-- **Dimensions**: Categorical fields (blue pills)
-- **Measures**: Numerical fields that can be aggregated (green pills)
+**🎯 Checkpoint:** Save and open in browser. You should see basic text content.
 
-## Creating Basic Visualizations
+---
 
-### Bar Chart: Sales by Product Category
-1. Drag "Product Category" to Columns
-2. Drag "Sales Amount" to Rows
-3. Click the dropdown on "Sales Amount" and select "Sum"
+## Step 2: Basic Dark Theme Styling (Day 1 continued)
 
-### Line Chart: Sales Trend Over Time
-1. Drag "Order Date" to Columns
-2. Click the dropdown on the date field and select a date level (Month, Quarter, Year)
-3. Drag "Sales Amount" to Rows
-4. Click the dropdown on "Sales Amount" and select "Sum"
+### 2.1 Add Reset and Body Styles
+In the `<style>` section, add:
 
-### Pie Chart: Sales Distribution by Region
-1. Click on the "Show Me" button in the top right
-2. Select the pie chart icon
-3. Drag "Region" to Color on the Marks card
-4. Drag "Sales Amount" to Angle on the Marks card
+```css
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-### Scatter Plot: Profit vs. Sales
-1. Drag "Sales Amount" to Columns
-2. Drag "Profit" to Rows
-3. Drag "Product Category" to Color on the Marks card
-4. Change the Mark type to "Circle" using the dropdown in the Marks card
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    color: #e8e8e8;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+```
 
-### Heat Map: Sales by Product Category and Region
-1. Drag "Product Category" to Rows
-2. Drag "Region" to Columns
-3. Drag "Sales Amount" to Color on the Marks card
-4. Change the Mark type to "Square" using the dropdown in the Marks card
+### 2.2 Style the Header
+Add these styles:
 
-## Working with Dates
+```css
+header {
+    padding: 2rem 0;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #333;
+}
 
-### Creating a Time Series Analysis
-1. Drag "Order Date" to Columns
-2. Right-click the date pill and select the appropriate date level (Day, Month, Quarter, Year)
-3. Drag "Sales Amount" to Rows
-4. Right-click the "Order Date" pill and select "Show Missing Values" to ensure a continuous date axis
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #d4af37;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
 
-### Year-over-Year Comparison
-1. Create a calculated field for the year: `YEAR([Order Date])`
-2. Drag this field to Color on the Marks card
-3. Create a Month calculated field: `MONTH([Order Date])` 
-4. Drag the Month field to Columns
-5. Drag "Sales Amount" to Rows
+.tagline {
+    font-size: 1rem;
+    color: #aaa;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+```
 
-## Geographic Mapping
+### 2.3 Style the Main Section
+```css
+.gallery-section {
+    padding: 4rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
 
-### Creating a Basic Map
-1. Drag "Country" to the center of the view (or to Detail on the Marks card)
-2. Tableau will automatically create a map
-3. Drag "Sales Amount" to Color on the Marks card
-4. Drag "Sales Amount" to Size on the Marks card
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #fff;
+    position: relative;
+}
 
-### Drill-Down Map
-1. Drag "Country" to Detail on the Marks card
-2. Drag "State/Province" to Detail on the Marks card
-3. Drag "City" to Detail on the Marks card
-4. Add "Sales Amount" to Color and Size
-5. Use the Map menu to adjust map layers and background styles
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #d4af37, transparent);
+}
+```
 
-## Creating Calculated Fields
+**🎯 Checkpoint:** Refresh browser. You should see a dark theme with golden logo and styled title.
 
-### Profit Margin Calculation
-1. Right-click in the Data pane and select "Create Calculated Field"
-2. Name it "Profit Margin"
-3. Enter the formula: `[Profit] / [Sales Amount]`
-4. Click OK
-5. Use this new field in visualizations by dragging it to various shelves
+---
 
-### Sales Growth Calculation
-1. Create a new calculated field named "Sales Growth"
-2. Use a table calculation with the formula: `(SUM([Sales Amount]) - LOOKUP(SUM([Sales Amount]), -1)) / LOOKUP(SUM([Sales Amount]), -1)`
-3. This calculates period-over-period growth
+## Step 3: Building the Gallery Grid (Day 2)
 
-### Customer Segmentation
-1. Create a calculated field named "Customer Value Segment"
-2. Enter a formula using IF/THEN logic:
-   ```
-   IF SUM([Sales Amount]) > 5000 THEN 'High Value'
-   ELSEIF SUM([Sales Amount]) > 1000 THEN 'Medium Value'
-   ELSE 'Low Value'
-   END
-   ```
+### 3.1 Replace Gallery Grid Placeholder
+Replace the gallery grid placeholder with actual gallery items:
 
-## Building Filters
+```html
+<div class="gallery-grid">
+    <div class="gallery-item">
+        <img src="/api/placeholder/300/250" alt="Street Photography">
+        <div class="gallery-item-info">
+            <div class="gallery-item-title">Street Life</div>
+            <div class="gallery-item-category">Street Photography</div>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/api/placeholder/300/250" alt="Fashion Photography">
+        <div class="gallery-item-info">
+            <div class="gallery-item-title">Fashion Forward</div>
+            <div class="gallery-item-category">Fashion</div>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/api/placeholder/300/250" alt="Nature Photography">
+        <div class="gallery-item-info">
+            <div class="gallery-item-title">Wild Moments</div>
+            <div class="gallery-item-category">Nature</div>
+        </div>
+    </div>
+    <!-- Add 3 more gallery items with different titles and categories -->
+</div>
+```
 
-### Quick Filters
-1. Drag "Product Category" to the Filters shelf
-2. In the dialog that appears, select the categories you want to include
-3. Right-click the filter pill and select "Show Filter" to add it to the view
+### 3.2 Style the Gallery Grid
+Add these CSS rules:
 
-### Date Range Filters
-1. Drag "Order Date" to the Filters shelf
-2. Choose "Range of Dates" and set your date range
-3. Right-click the filter pill and select "Show Filter"
-4. Choose a filter style (slider, relative date, etc.)
+```css
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
 
-### Top N Filter
-1. Drag "Product Name" to the Filters shelf
-2. Select the "Top" tab
-3. Choose "By Field" and set it to show the top N products by Sum of Sales Amount
-4. Set N to the desired number (e.g., 10)
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #222;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+}
 
-## Creating Parameters
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
 
-### Sales Target Parameter
-1. Right-click in the Data pane and select "Create Parameter"
-2. Name it "Sales Target"
-3. Set the data type to "Float"
-4. Set a range of values (e.g., 1000 to 10000)
-5. Set a default value
-6. Click OK
-7. Right-click the parameter and select "Show Parameter"
+.gallery-item-info {
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+}
 
-### Using Parameters with Calculated Fields
-1. Create a calculated field named "Sales vs Target"
-2. Enter the formula: `SUM([Sales Amount]) - [Sales Target]`
-3. Use this field to color code performance against target
+.gallery-item-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: #d4af37;
+    margin-bottom: 0.5rem;
+}
 
-### Dynamic Measure Selection
-1. Create a parameter named "Select Measure" with a data type of "String"
-2. Add a list of allowed values: "Sales", "Profit", "Quantity", etc.
-3. Create a calculated field named "Selected Measure" with the formula:
-   ```
-   CASE [Select Measure]
-   WHEN 'Sales' THEN [Sales Amount]
-   WHEN 'Profit' THEN [Profit]
-   WHEN 'Quantity' THEN [Quantity]
-   END
-   ```
-4. Use this field in your visualizations to allow users to switch between measures
+.gallery-item-category {
+    color: #888;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+```
 
-## Building Interactive Dashboards
+**🎯 Checkpoint:** You should now see a responsive grid of gallery items.
 
-### Creating a Dashboard
-1. Click the "New Dashboard" icon at the bottom of the screen
-2. Set the dashboard size (fixed or automatic)
-3. Drag sheets from the left pane onto the dashboard canvas
-4. Arrange the visualizations as desired
+---
 
-### Adding Interactivity
-1. Click on a worksheet in your dashboard
-2. Click the dropdown arrow and select "Use as Filter"
-3. Now when users click on elements in this view, it will filter other visualizations
+## Step 4: Adding Hover Effects (Day 2 continued)
 
-### Adding Dashboard Actions
-1. Go to Dashboard > Actions
-2. Click "Add Action" and select the type:
-   - Filter actions: Filter other sheets based on selections
-   - Highlight actions: Highlight related data across sheets
-   - URL actions: Open web pages based on selections
-3. Configure the action settings and click OK
+### 4.1 Add Hover Effects to Gallery Items
+Add these hover effects to your existing CSS:
 
-### Adding Dashboard Objects
-Enhance your dashboard with:
-- Text boxes (titles, descriptions)
-- Images (logos, icons)
-- Web pages
-- Blank containers for layout
-- Buttons for navigation
+```css
+.gallery-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2);
+}
 
-## Advanced Analytics
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+```
 
-### Trend Analysis
-1. Create a time series visualization
-2. Right-click the visualization and select "Trend Lines"
-3. Choose the model type (linear, logarithmic, etc.)
-4. View the trend line and statistical model details
+### 4.2 Add Smooth Animations
+Add these animation styles:
 
-### Forecasting
-1. Create a time series visualization
-2. Right-click the axis and select "Forecast"
-3. Set forecast options (length, prediction intervals, etc.)
-4. View the forecast and confidence bands
+```css
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-### Clustering
-1. Create a scatter plot with dimensions of interest
-2. Go to Analytics pane
-3. Drag "Cluster" onto the view
-4. Set clustering variables and the number of clusters
-5. Analyze the resulting clusters
+.gallery-item {
+    animation: fadeInUp 0.6s ease forwards;
+}
 
-### What-If Analysis
-1. Create parameters for key input variables
-2. Create calculated fields that use these parameters
-3. Build a dashboard that shows how outcomes change as parameters are adjusted
+.gallery-item:nth-child(1) { animation-delay: 0.1s; }
+.gallery-item:nth-child(2) { animation-delay: 0.2s; }
+.gallery-item:nth-child(3) { animation-delay: 0.3s; }
+.gallery-item:nth-child(4) { animation-delay: 0.4s; }
+.gallery-item:nth-child(5) { animation-delay: 0.5s; }
+.gallery-item:nth-child(6) { animation-delay: 0.6s; }
+```
 
-## Sharing and Exporting Your Work
+**🎯 Checkpoint:** Hover over gallery items to see lift effect and image scaling. Page should load with staggered animation.
 
-### Exporting Visualizations
-1. Go to Worksheet > Export
-2. Choose the format (Image, Data, Crosstab to Excel, PDF)
+---
 
-### Publishing to Tableau Server/Online
-1. Go to Server > Publish Workbook
-2. Sign in to your Tableau Server or Tableau Online account
-3. Set visibility and permissions options
-4. Click "Publish"
+## Step 5: Building the Carousel - HTML Structure (Day 3)
 
-### Creating a Packaged Workbook
-1. Go to File > Save As
-2. Change the file type to "Tableau Packaged Workbook (.twbx)"
-3. This includes the data and can be shared with other Tableau users
+### 5.1 Replace Carousel Placeholder
+Replace the carousel placeholder with this structure:
 
-### Creating a PDF or PowerPoint
-1. Go to File > Print to PDF
-2. Select which sheets to include
-3. Set page layout options
-4. Click "Print to PDF"
+```html
+<div class="carousel-container">
+    <input type="radio" name="carousel" id="slide1" checked>
+    <input type="radio" name="carousel" id="slide2">
+    <input type="radio" name="carousel" id="slide3">
+    
+    <div class="carousel">
+        <div class="carousel-slide">
+            <img src="/api/placeholder/1000/600" alt="Urban Architecture">
+            <div class="slide-overlay">
+                <div class="slide-title">Urban Architecture</div>
+                <div class="slide-description">Capturing the essence of modern cityscapes.</div>
+            </div>
+        </div>
+        <div class="carousel-slide">
+            <img src="/api/placeholder/1000/600" alt="Natural Portraits">
+            <div class="slide-overlay">
+                <div class="slide-title">Natural Portraits</div>
+                <div class="slide-description">Intimate portraits in natural settings.</div>
+            </div>
+        </div>
+        <div class="carousel-slide">
+            <img src="/api/placeholder/1000/600" alt="Landscape Serenity">
+            <div class="slide-overlay">
+                <div class="slide-title">Landscape Serenity</div>
+                <div class="slide-description">Breathtaking landscapes showcase nature's grandeur.</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="carousel-nav">
+        <input type="radio" name="carousel" id="nav1" checked>
+        <label for="slide1"></label>
+        <input type="radio" name="carousel" id="nav2">
+        <label for="slide2"></label>
+        <input type="radio" name="carousel" id="nav3">
+        <label for="slide3"></label>
+    </div>
+</div>
+```
 
-## Practice Exercises
+**🎯 Checkpoint:** Save and refresh. You should see three images stacked vertically (we'll fix the layout next).
 
-### Exercise 1: Sales Performance Dashboard
-Create a dashboard showing:
-- Monthly sales trend
-- Top 5 products by sales
-- Sales by region on a map
-- Sales vs profit scatter plot
-- Add filters for date range and product category
+---
 
-### Exercise 2: Customer Analysis
-Create visualizations showing:
-- Customer segment distribution
-- Average order value by customer segment
-- Customer acquisition over time
-- Geographic distribution of customers
-- Add parameters to change the time period
+## Step 6: Carousel Styling (Day 3 continued)
 
-### Exercise 3: Product Performance
-Create a dashboard showing:
-- Product category performance
-- Product subcategory breakdown
-- Profit margin analysis
-- Seasonal trends by product
-- Add calculated fields for year-over-year growth
+### 6.1 Basic Carousel Layout
+Add these styles:
+
+```css
+.carousel-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto 4rem;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.carousel-slide {
+    min-width: 100%;
+    position: relative;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    display: block;
+}
+```
+
+### 6.2 Slide Overlay Effects
+```css
+.slide-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    padding: 2rem;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+}
+
+.carousel-slide:hover .slide-overlay {
+    transform: translateY(0);
+}
+
+.slide-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #d4af37;
+    margin-bottom: 0.5rem;
+}
+
+.slide-description {
+    color: #ccc;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+```
+
+**🎯 Checkpoint:** Hover over the carousel image to see the overlay slide up effect.
+
+---
+
+## Step 7: Carousel Navigation (Day 4)
+
+### 7.1 Hide Radio Buttons and Style Labels
+```css
+.carousel-nav {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.carousel-nav input[type="radio"] {
+    display: none;
+}
+
+.carousel-nav label {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.carousel-nav label:hover {
+    background: rgba(212, 175, 55, 0.6);
+    transform: scale(1.2);
+}
+
+.carousel-nav input[type="radio"]:checked + label {
+    background: #d4af37;
+    border-color: #fff;
+    transform: scale(1.3);
+}
+```
+
+### 7.2 Make Carousel Functional
+Add the magic CSS that makes the carousel work:
+
+```css
+#slide1:checked ~ .carousel { transform: translateX(0%); }
+#slide2:checked ~ .carousel { transform: translateX(-100%); }
+#slide3:checked ~ .carousel { transform: translateX(-200%); }
+```
+
+**🎯 Checkpoint:** Click the navigation dots to see the carousel slide between images!
+
+---
+
+## Step 8: Responsive Design (Day 4 continued)
+
+### 8.1 Add Mobile Styles
+```css
+@media (max-width: 768px) {
+    .logo {
+        font-size: 2rem;
+    }
+
+    .gallery-section {
+        padding: 2rem 1rem;
+    }
+
+    .carousel-slide img {
+        height: 400px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+```
+
+**🎯 Checkpoint:** Resize your browser window to test mobile responsiveness.
+
+---
+
+## Step 9: Final Polish (Day 5)
+
+### 9.1 Students Choose Their Own Content
+Have students:
+- Replace placeholder images with their own photos or themed images
+- Update gallery titles and categories to match their interests
+- Customize the color scheme (change #d4af37 to their preferred accent color)
+- Update the site name and tagline
+
+### 9.2 Add Final Touches
+Students can experiment with:
+- Adding more carousel slides
+- Changing animation durations
+- Adjusting hover effects
+- Creating their own color palettes
+
+---
+
+## Assessment Rubric
+
+### Technical Skills (40 points)
+- **HTML Structure (10 pts):** Proper semantic HTML, clean structure
+- **CSS Layout (10 pts):** Grid and flexbox implementation
+- **Animations (10 pts):** Smooth transitions and hover effects
+- **Responsive Design (10 pts):** Works on different screen sizes
+
+### Design & Creativity (30 points)
+- **Visual Appeal (15 pts):** Professional appearance, good color choices
+- **Content Quality (15 pts):** Appropriate images and text
+
+### Problem Solving (20 points)
+- **Debugging (10 pts):** Ability to fix issues independently
+- **Code Organization (10 pts):** Clean, commented, organized code
+
+### Presentation (10 points)
+- **Demo (10 pts):** Can explain how features work
+
+---
+
+## Extension Challenges
+
+**For Advanced Students:**
+1. Add more carousel slides with automatic rotation
+2. Create a lightbox effect for gallery images
+3. Add filtering buttons for gallery categories
+4. Implement smooth scrolling navigation
+5. Add loading animations
+
+**For Struggling Students:**
+- Focus on completing Steps 1-4 (basic gallery grid)
+- Simplify carousel to just HTML structure
+- Use simpler hover effects (just color changes)
+
+---
+
+## Common Troubleshooting
+
+**Carousel not working?**
+- Check that radio button IDs match label `for` attributes
+- Ensure the transform percentages are correct
+
+**Images not showing?**
+- Verify image paths are correct
+- Check if placeholder URLs work in your environment
+
+**Styles not applying?**
+- Check for typos in CSS selectors
+- Ensure CSS is inside `<style>` tags
+- Validate HTML structure
+
+**Hover effects not smooth?**
+- Check transition properties are applied to base element, not hover state
+- Verify transform-origin is set correctly
+
+---
+
+## Teacher Notes
+
+- **Day 1:** Focus on structure and basic styling
+- **Day 2:** Build the grid and add basic interactivity
+- **Day 3:** Tackle the carousel (most challenging part)
+- **Day 4:** Polish and responsive design
+- **Day 5:** Customization and presentations
+
+**Key Learning Objectives:**
+- CSS Grid and Flexbox mastery
+- Advanced CSS selectors and pseudo-classes
+- Transform and transition properties
+- Responsive design principles
+- CSS-only interactive components
