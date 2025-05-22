@@ -1,10 +1,8 @@
-# Professional Photo Gallery - Step-by-Step Tutorial
+# Professional Photo Gallery - IFB500 - QUT - Stephen Vu
 
 ## Project Overview
 Students will build a professional dark-themed photo gallery with carousel and hover effects. This project teaches advanced CSS techniques including animations, responsive design, and complex layouts.
 
-**Estimated Time:** 4-6 class periods  
-**Difficulty:** Intermediate to Advanced
 
 ---
 
